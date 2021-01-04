@@ -10,3 +10,10 @@ This repository is primarily for the benefit of the author and will serve as a d
 * July/August: [Fuzzing](fuzzing/README.md)
 * September/October: [Memory Allocation](memory_allocation/README.md)
 * November/December: [CTFs/Post-Exploitation](ctf_post_exploit/README.md)
+
+
+## Papers
+
+This is a list of papers or long-form posts that I'm reading over the year
+
+1. [P0: An iOS hacker tries Android](https://googleprojectzero.blogspot.com/2020/12/an-ios-hacker-tries-android.html)

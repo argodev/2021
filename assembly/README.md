@@ -9,7 +9,7 @@
 
 ## Introduction
 
-It seems that most every other 
+It seems that nearly all of the tools used in Vulnerability Science generate (or expose) assembly language at some point. You see it in stack traces, you see it in `gdb` outputs, you see it in `Ghidra` outputs, you see it all over the place. As such, it seems like a logical place to begin the year.
 
 ## Books of Interest
 
@@ -22,10 +22,11 @@ It seems that most every other
 ## Videos of Interest
 
 * [Why should I learn assembly language in 2020? (complete waste of time?)](https://www.youtube.com/watch?v=iYRl50gtprA), [Jacob Sorber](https://www.youtube.com/channel/UCwd5VFu4KoJNjkWJZMFJGHQ)
-* [Assembly Language Tutorial](https://www.youtube.com/watch?v=ViNnfoE56V8)[Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
-* [Assembly Language Tutorial 2](https://www.youtube.com/watch?v=5HILZon7pVE)[Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
-* [Assembly Language Tutorial 3](https://www.youtube.com/watch?v=2ghL_R5CSaI)[Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
-* [Assembly Language Tutorial 4](https://www.youtube.com/watch?v=zj-cGdNpYZ8)[Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
+* [Assembly Language Tutorial](https://www.youtube.com/watch?v=ViNnfoE56V8), [Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
+* [Assembly Language Tutorial 2](https://www.youtube.com/watch?v=5HILZon7pVE), [Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
+* [Assembly Language Tutorial 3](https://www.youtube.com/watch?v=2ghL_R5CSaI), [Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
+* [Assembly Language Tutorial 4](https://www.youtube.com/watch?v=zj-cGdNpYZ8), [Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
+* [x86 Assembly: Hello World!](https://www.youtube.com/watch?v=HgEGAaYdABA), [John Hammond](https://www.youtube.com/channel/UCVeW9qkBjo3zosnqUbG7CFw)
 
 ## Cheat Sheets 
 
@@ -39,6 +40,28 @@ clang -S hello.c
 ```
 
 This will yield a `*.s` file (check out the `scratch` directory)
+
+
+systemcalls are defined in `unistd.h` (64-bit) and `unistd_32.h` in `/usr/include/x86_64-linux-gnu/asm/` on Ubuntu
+
+
+Build a 32-bit hello-world
+
+```bash
+
+# open the linux programmer's manual, looking at the signature for "write"
+man 2 write
+
+# create the 32-bit object file
+nasm -f elf32 -o hello_world.o hello_world.asm
+
+# run the linker and create the executable
+ld -m elf_i386 -o hello_world hello_world.o
+
+# run the executeable
+./hello_world
+
+```
 
 ---
 * [Back to Top](#assembly-language)
