@@ -135,3 +135,101 @@ _printHello:
 
 See [`userinput.asm`](userinput.asm)
 
+## Math Operations
+
+Form: operation, register, value or register
+
+First register is the _"subject"_ of the operation
+
+> NOTE: `mul` and `div` _assume_ the subject is the `rax` register. 
+
+| Operation | Signed | Description |
+| --------- | ------ | ----------- |
+| add a, b | | a = a+b |
+| sub a, b | | a = a-b |
+| mul reg | imul reg | rax = rax * reg |
+| div reg | idiv reg | rax = rax / reg |
+| neg reg | | reg = -reg |
+| inc reg | | reg = reg + 1 |
+| dec reg | | reg = reg - 1 |
+| adc a, b | | a = a+b+CF |
+| sbb a, b | | a = a-b-CF |
+
+
+See [`math.asm`](math.asm)
+
+Also has a simple example of pointers, using/moving/updating only part of a register, and mapping to ASCII.
+
+### Stack
+
+imagine it like a stack of papers... you can put anything on it, but at any given time, you can only see what is on the paper on top
+
+push - add data to the top
+
+pop - remove data from the top
+
+'peeking' lets you look at the value with out touching it.
+
+```asm
+mov reg, [rsp]      ; simple peek
+```
+
+## Subroutine to Print Strings
+
+See [`dynamicprinting.asm`](dynamicprinting.asm)
+
+## Macros (specific to NASM)
+
+See [`macros.asm`](macros.asm)
+
+Also, note that `equ` allows you to define constants
+
+
+```asm
+STDIN equ 0
+STDOUT equ 1
+STDERR equ 2
+
+SYS_READ equ 0
+SYS_WRITE equ 1
+SYS_EXIT = equ 60
+
+section .data
+    text db "Hello, World!", 10
+
+section .text
+    global _start
+
+_start:
+    mov rax, SYS_WRITE
+    mov rdi, STDOUT
+    mov rsi, text
+    mov rdx, 14
+    syscall
+
+    mov rax, SYS_EXIT
+    mov rdi, 0
+    syscall
+```
+
+You can also include external files via the form:
+
+```
+%include "filename.asm"
+```
+
+Great way to grab constants, macros, subroutines, etc.
+
+Check out [linux64.inc](http://pastebin.com/N1ZdmhLw)
+
+NOTE: using `-g` in your `nasm` call will add the debug symbols, and allow GDB to step through them.
+
+```bash
+nasm -f elf64 -g myfile.asm -o myfile.o
+ld myfile.o -o myfile
+gdb myfile
+
+(gdb) disassemble _start
+```
+
+
