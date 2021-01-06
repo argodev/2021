@@ -27,6 +27,8 @@ It seems that nearly all of the tools used in Vulnerability Science generate (or
 * [Assembly Language Tutorial 3](https://www.youtube.com/watch?v=2ghL_R5CSaI), [Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
 * [Assembly Language Tutorial 4](https://www.youtube.com/watch?v=zj-cGdNpYZ8), [Derek Banas](https://www.youtube.com/channel/UCwRXb5dUK4cvsHbx-rGzSgw)
 * [x86 Assembly: Hello World!](https://www.youtube.com/watch?v=HgEGAaYdABA), [John Hammond](https://www.youtube.com/channel/UCVeW9qkBjo3zosnqUbG7CFw)
+* [x86_64 Linux Assembly](https://www.youtube.com/playlist?list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn), [kupala](https://www.youtube.com/user/khoraski)
+
 
 ## Cheat Sheets 
 
