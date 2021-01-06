@@ -265,3 +265,60 @@ _Essentially, `digitSpacePos` is an indexer into `digitSpace`. You might think w
 **Conclusion:** If I am understanding things at this point (likely not), any variables defined in the `.bss` section are essentially viewed as pointers/address locations (e.g. `char*`). If I want to read/update the contents, I need to _"dereference"_ the pointer using the `[]` notation. 
 
 
+## Command Line Arguments (#9)
+
+arguments are automatically placed on the stack! The top item on the stack is the number of arguments, followed by arg1 which is a pointer to a string holding the path of the executeable, followed by `arg[1]... arg[n]`
+
+Check out [argtest.asm](argtest.asm)
+
+NOTE: get latest [linux64.inc](http://pastebin.com/wCNZs3RN)
+
+Look up author's file [argest.asm](http://pastebin.com/MAA0NFsK)
+
+Consider the following:
+
+```bash
+$ ls
+argtest  argtest.asm  argtest.o  dynamicprinting.asm  hello.asm  linux64.inc  macros.asm  math.asm  printints.asm  README.md  userinput.asm
+$ ./argtest `ls`
+???
+```
+
+## Introduction to Files (#10)
+
+File Permissions
+
+| Value | Read | Write | Execute |
+|:-----:|:----:|:-----:|:-------:|
+| 0 | | | |
+| 1 | | | x |
+| 2 | | x | |
+| 3 | | x | x |
+| 4 | x | | |
+| 5 | x | | x |
+| 6 | x | x | |
+| 7 | x | x | x |
+
+Also discusses the 4 least-significant octal values:
+
+` special | owner | group | other`
+
+Given this, a file with no special flags, the owner having R+W, and all others R, would be (in octal) `0644`
+
+## Writing Files (#11)
+
+Some simple but good stuff here
+
+Check out [writing.asm](writing.asm)
+
+## Reading Files (#12)
+
+Check out [reading.asm](reading.asm)
+
+## Pausing with Nanosleep (#13)
+
+We've been using `db`, now we can use `dw`, `dd`, and `dq`
+
+References [timespec](https://en.cppreference.com/w/c/chrono/timespec)
+
+Check out [sleeping.asm](sleeping .asm)
