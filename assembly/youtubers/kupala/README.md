@@ -232,4 +232,36 @@ gdb myfile
 (gdb) disassemble _start
 ```
 
+> NOTE: I had been running along quite smoothly to this point, but then realized that I didn't quite understand everything that was going on in video #8, so I stopped to make sure I did. I also realized that I had sometime recently broken my installation of `pwndbg`, so I had to take some time to get that working.
+
+The key point of confusion for me was the following line of code:
+
+```asm
+mov [digitSpacePos], rcx
+```
+
+Obviously, the brakets indicate the address, but does this mean it is copying the value contained in `rcx` to the 8-byte storage location pointed to by `digitSpacePos`? (likely, esp. now that I say it out loud). Well, there's nothing better than specific verification, so here we go...
+
+Seeing that `digitSpace` was located at `0x402000`, it wasn't hard to guess (and have confirmed) that `digitSpacePos` was located at `0x402064`. Prior to line 29, it was all zeros.
+
+It should also be instructive to look at the GDB disassembly which changed the line shown above to the following:
+
+```asm
+mov qword ptr [digitSpacePos], rcx <0x402064>
+```
+
+As suggested, after stepping through that line, a quick check of the contents of `digitSpacePos` (`(gdb) x /xg 0x402064`) showed a value of `0x0000000000402001`. This leaves us with the plain-text description of lines 2529 as the following:
+
+1. Get the address of the start (1st byte) of `digitSpace` and store it in `rcx`
+1. Store the line-feed character (`0xa`) in `rbx`
+1. Copy the line-feed character to the location pointed to by `rcx`
+1. Increment `rcx` by one
+1. Stash/store the updated value of `rcx` (address pointing to the second byte within `digitSpace`) into `digitSpacePos`
+
+With this established, the rest of the program logic falls into place (similar pattern, repeated). We proceed into the `_printRAXLoop` where we divide the number by `10`, grab the remainder, store it in `digitSpace` by using the address we stashed in `digitSpacePos` (the 2nd byte of `digitSpace`), increment `rcx`, store the updated value in `digitSpacePos` and continue.
+
+_Essentially, `digitSpacePos` is an indexer into `digitSpace`. You might think we could just use the value stored in `rcx`, however we cannot assume that intermediate operations will leave that register alone, so we must preserve/restore it._
+
+**Conclusion:** If I am understanding things at this point (likely not), any variables defined in the `.bss` section are essentially viewed as pointers/address locations (e.g. `char*`). If I want to read/update the contents, I need to _"dereference"_ the pointer using the `[]` notation. 
+
 

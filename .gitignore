@@ -1,2 +1,3 @@
 assembly/scratch/hello_world
 *.o
+.gdb_history
