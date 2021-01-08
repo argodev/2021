@@ -41,7 +41,7 @@ section .bss
 	mov [rcx], dl
 	inc rcx
 	mov [digitSpacePos], rcx
-
+	
 	pop rax
 	cmp rax, 0
 	jne %%printRAXLoop
