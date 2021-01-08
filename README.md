@@ -17,6 +17,6 @@ This repository is primarily for the benefit of the author and will serve as a d
 One of my professional goals for 2021 is to read at least one vulnerability science-related paper or long-form blog post each week with the intent of both staying knowledgeable with the current trends and research as well as deepening my understanding of various techniques. This serves as a list of those that I have read.
 
 1. [P0: An iOS hacker tries Android](https://googleprojectzero.blogspot.com/2020/12/an-ios-hacker-tries-android.html)
-   1. [Notes](papers/01/README.md)
+   * [Notes](papers/01/README.md)
 1. [Reversing TL-WR840N](https://therealunicornsecurity.github.io/TPLink/)
-   1. [Notes](papers/02/README.md)
+   * [Notes](papers/02/README.md)
