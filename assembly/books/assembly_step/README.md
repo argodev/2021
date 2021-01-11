@@ -44,9 +44,17 @@ or, `0xF000FA6E`
 
 [COMSACE ELF Simulator](https://billr.incolor.com/computer_simulators.htm)
 
-
-
 ## Chapter 4: Location, Location, Location
+
+> The skill of assembly language consists of a deep comprehension of memory addressing
+
+### Memory Models:
+
+1. Real mode flat model
+1. Real mode segmented model
+1. protected mode flat model
+
+While I haven't written a great deal of notes here, this chapter was quite helpful in filling-out my understanding of the memory models and how the "address space" works for programs (both 32 and 64-bit). Unfortunately, I would have said that this was all quite a mystery to me previously - especially with respect to how physical/real memory maps over to the memory space exposed to programs. Additionally, the history and progression information was helpful background information (e.g. what is "protected mode" and why it matters).
 
 ## Chapter 5: The Right to Assemble
 
