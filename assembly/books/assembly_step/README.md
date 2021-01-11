@@ -26,10 +26,25 @@ At this point (around page 28) he has described number bases fairly well, shown 
 
 After working through a number of the problems by hand, I actually took the author's advice and created (via [quizlet](https://quizlet.com)) a series of flashcards for practicing hex-based math. I have included a CSV file that can be used to create your own [here](hexmath.csv).
 
+Now, he switches over to focus on binary.
 
+Nothing particularly magic here... essentially shows that binary uses the same conversion methods as any other number base. 
+
+Possibly helpfully, however he shows that hex can be a shorthand for binary. Every four binary bits (starting from the right) can be represented as a single hex character. In this fashion, the computer *always* operates in binary, but we use Hex as a type of shorthand for making it easier to understand. This short hand, however, does *not* change the actual values.
+
+```
+1111 0000 0000 0000 1111 1010 0110 1110
+  F    0    0    0    F    A    6    E
+```
+
+or, `0xF000FA6E`
 
 
 ## Chapter 3: Lifting the Hood
+
+[COMSACE ELF Simulator](https://billr.incolor.com/computer_simulators.htm)
+
+
 
 ## Chapter 4: Location, Location, Location
 
