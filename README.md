@@ -17,6 +17,11 @@ This repository is primarily for the benefit of the author and will serve as a d
 One of my professional goals for 2021 is to read at least one vulnerability science-related paper or long-form blog post each week with the intent of both staying knowledgeable with the current trends and research as well as deepening my understanding of various techniques. This serves as a list of those that I have read.
 
 1. [P0: An iOS hacker tries Android](https://googleprojectzero.blogspot.com/2020/12/an-ios-hacker-tries-android.html)
-   * [Notes](papers/01/README.md)
+   * [Notes](papers/01_notes.md)
 1. [Reversing TL-WR840N](https://therealunicornsecurity.github.io/TPLink/)
-   * [Notes](papers/02/README.md)
+   * [Notes](papers/02_notes.md)
+1. [Understanding Integer Overflow in C/C++](https://www.cs.utah.edu/~regehr/papers/overflow12.pdf)
+   * [Notes](papers/03_notes.md)
+1. [Deep dive into the Solorigate second-stage activation: From SUNBURST to TEARDROP and Raindrop](https://www.microsoft.com/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activation-from-sunburst-to-teardrop-and-raindrop/)
+   * [Notes](papers/04_notes.md)
+
