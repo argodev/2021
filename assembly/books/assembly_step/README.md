@@ -58,6 +58,9 @@ While I haven't written a great deal of notes here, this chapter was quite helpf
 
 ## Chapter 5: The Right to Assemble
 
+
+
+
 ## Chapter 6: A Place to Stand, with Access to Tools
 
 ## Chapter 7: Following your Instructions
