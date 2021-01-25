@@ -58,10 +58,37 @@ While I haven't written a great deal of notes here, this chapter was quite helpf
 
 ## Chapter 5: The Right to Assemble
 
+This chapter was another "intro" style chapter that provided some strong background. Right near the end, it jumps into walking you through actually creating a program - one that writes a little message to standard out and then exits. I diverged from the path suggested in the book and a.) manually entered the source code and b.) used the debugger interface in VSCode (combined with GDB) to do the debugging. A couple of notes:
 
+1. On modern (x64) systems, you need to explicitly compile for 32 bit if that is desired:
 
+   ```bash
+   nasm -f elf -g -F stabs eatsyscall.asm
+   ```
+
+1. Similarly, you need to explicity link for 32-bit if desired
+
+   ```bash
+   ld -m elf_i386 -o eatsyscall eatsyscall.o
+   ```
+
+1. Since VSCode is not natively configured to debug assembly programs, you cannot simply set a breakpoint in your `*.asm` file and hit 'debug'. Instead, you can create a debug configuration (see the `launch.json` file) and then, in debug view, set a breakpoint on the function you wish to stop on (e.g. `_start`). Once you do this, you can then execute gdb-style commands as you normally would such as:
+
+   ```bash
+   -exec disassemble
+   ```
+
+> NOTE: You may get the error: `&"warning: GDB: Failed to set controlling terminal: Operation not permitted\n"` when running the debugger. This is a known issue and can be ignored.
+
+All of the above considered, I find it a bit easier to use `pwntools` with `gdb` directly. Simply run `gdb eatsyscall` followed by `break _start` and `run` and you are golden. You can than step (`s`) through the code and watch it run while seeing the stack, registers, etc.
 
 ## Chapter 6: A Place to Stand, with Access to Tools
+
+This chapter was a reasonably quick read. Author spent a fair amount of time describing a tool set (`kate`) that I have no intention to use. I did review the pages and ensured that the things I needed would be provided in my chosen editor/tool chain: vscode and/or vim. 
+
+I slowed down a bit in the section on makefiles. As dumb as it sounds, I've never had a good intro to these and always "just figured it out". Here, the author's explanation makes a ton of sense, and I created and tested my own. I expect this will help me moving forward.
+
+Ends the chapter with a discussion of another debugger that I don't intend to use (insight). My plan is to either use gdb directly (with pwntools) or use gdb as integrated with vscode.
 
 ## Chapter 7: Following your Instructions
 
