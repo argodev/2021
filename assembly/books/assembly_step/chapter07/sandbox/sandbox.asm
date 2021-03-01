@@ -6,7 +6,7 @@ section .text
 _start:
     nop ; put your experiment lines in between the two nops
 
-    mov ax, 067feh
+    mov ax, 0x67FE
     mov bx, ax
     mov cl, bh
     mov ch, bl

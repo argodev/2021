@@ -6,7 +6,7 @@
      6                                  _start:
      7 00000000 90                          nop ; put your experiment lines in between the two nops
      8                                  
-     9 00000001 66B8FE67                    mov ax, 067feh
+     9 00000001 66B8FE67                    mov ax, 0x67FE
     10 00000005 6689C3                      mov bx, ax
     11 00000008 88F9                        mov cl, bh
     12 0000000A 88DD                        mov ch, bl
